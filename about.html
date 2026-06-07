@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — ElectroMart</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary: #0a66ff;
+  --accent: #0d47a1;
+  --muted: #6b7280;
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --shadow: 0 6px 20px rgba(13,71,161,0.08);
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+  font-family: 'Poppins', sans-serif; 
+  background: var(--bg); 
+  color: #111;
+  line-height: 1.7;
+}
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  padding: 1rem 0;
+  box-shadow: 0 4px 14px rgba(2,6,23,0.15);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  line-height: 1.8;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Mission Section */
+.mission-section {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 3rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 3rem;
+}
+
+.mission-section h2 {
+  color: var(--accent);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mission-section h2 i {
+  color: var(--primary);
+}
+
+.mission-section p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/* Features Grid */
+.features-section {
+  margin-bottom: 3rem;
+}
+
+.features-section h2 {
+  text-align: center;
+  color: var(--accent);
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(10,102,255,0.2);
+}
+
+.feature-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.feature-card h3 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.feature-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Stats Section */
+.stats-section {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: var(--radius);
+  padding: 3rem;
+  margin-bottom: 3rem;
+  box-shadow: var(--shadow);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.stat-card {
+  text-align: center;
+  color: #fff;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Technology Stack */
+.tech-section {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 3rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 3rem;
+}
+
+.tech-section h2 {
+  color: var(--accent);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.tech-item {
+  background: var(--bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.tech-item:hover {
+  border-color: var(--primary);
+  transform: scale(1.05);
+}
+
+.tech-item i {
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.tech-item h4 {
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+/* Team Section */
+.team-section {
+  margin-bottom: 3rem;
+}
+
+.team-section h2 {
+  text-align: center;
+  color: var(--accent);
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.team-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.team-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.team-card h3 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.team-card .role {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.team-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  border-radius: var(--radius);
+  padding: 3rem;
+  text-align: center;
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  padding: 1rem 2rem;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cta-btn:hover {
+  background: #fff;
+  color: #4CAF50;
+}
+
+.cta-btn.primary {
+  background: #fff;
+  color: #4CAF50;
+}
+
+.cta-btn.primary:hover {
+  background: transparent;
+  color: #fff;
+}
+
+/* Footer */
+.footer {
+  background: var(--card);
+  padding: 3rem 0;
+  margin-top: 3rem;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section h3 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.footer-section p,
+.footer-section a {
+  color: var(--muted);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: var(--primary);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  transition: all 0.3s;
+}
+
+.social-link:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 2rem 0 0;
+  margin-top: 2rem;
+  border-top: 1px solid #e6eefc;
+  color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-section p {
+    font-size: 1rem;
+  }
+  
+  .mission-section,
+  .tech-section,
+  .stats-section,
+  .cta-section {
+    padding: 2rem 1.5rem;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="brand">
+      <div class="logo">E</div>
+      ElectroMart
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+      <a href="products.html" class="nav-link"><i class="fas fa-shopping-bag"></i> Products</a>
+      <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a>
+    </div>
+    <div class="nav-actions">
+      <a href="#" class="nav-btn" id="userBtn" onclick="handleUserAction(event)">
+        <i class="fas fa-user"></i>
+        <span id="userText">Login</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-content">
+    <h1>About ElectroMart</h1>
+    <p>Your trusted destination for the latest electronics and gadgets. Built with passion, designed for excellence.</p>
+  </div>
+</section>
+
+<!-- Main Container -->
+<div class="container">
+
+  <!-- Mission Section -->
+  <section class="mission-section">
+    <h2><i class="fas fa-bullseye"></i> Our Mission</h2>
+    <p>
+      ElectroMart is a comprehensive e-commerce platform designed to showcase modern web development practices. 
+      Our mission is to provide a seamless shopping experience for electronics enthusiasts while demonstrating 
+      best practices in frontend development, responsive design, and user experience.
+    </p>
+    <p>
+      This demo marketplace serves as a learning platform and prototype, featuring real-world e-commerce 
+      functionalities including product browsing, advanced filtering, shopping cart management, and checkout flows. 
+      Built entirely with vanilla HTML, CSS, and JavaScript, it's ready to integrate with any backend system.
+    </p>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Products Available</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">50K+</div>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">Top Brands</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Customer Support</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <h2>Why Choose ElectroMart?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Secure Shopping</h3>
+        <p>Your data is protected with industry-standard encryption and secure payment gateways.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-shipping-fast"></i>
+        </div>
+        <h3>Fast Delivery</h3>
+        <p>Get your products delivered quickly with our reliable logistics partners across India.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-tag"></i>
+        </div>
+        <h3>Best Prices</h3>
+        <p>Competitive pricing with regular deals and discounts on top electronics brands.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3>24/7 Support</h3>
+        <p>Our customer support team is always ready to help you with any queries or issues.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-undo"></i>
+        </div>
+        <h3>Easy Returns</h3>
+        <p>Hassle-free return and exchange policy within 7 days of delivery.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-certificate"></i>
+        </div>
+        <h3>Genuine Products</h3>
+        <p>100% authentic products sourced directly from authorized distributors.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="tech-section">
+    <h2>Built With Modern Technologies</h2>
+    <div class="tech-grid">
+      <div class="tech-item">
+        <i class="fab fa-html5"></i>
+        <h4>HTML5</h4>
+      </div>
+      <div class="tech-item">
+        <i class="fab fa-css3-alt"></i>
+        <h4>CSS3</h4>
+      </div>
+      <div class="tech-item">
+        <i class="fab fa-js"></i>
+        <h4>JavaScript</h4>
+      </div>
+      <div class="tech-item">
+        <i class="fas fa-mobile-alt"></i>
+        <h4>Responsive</h4>
+      </div>
+      <div class="tech-item">
+        <i class="fas fa-bolt"></i>
+        <h4>Fast</h4>
+      </div>
+      <div class="tech-item">
+        <i class="fas fa-paint-brush"></i>
+        <h4>Modern UI</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <h2>Meet Our Team</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">AR</div>
+        <h3>Arjun Reddy</h3>
+        <p class="role">Founder & CEO</p>
+        <p>Visionary leader with 10+ years in e-commerce and technology innovation.</p>
+      </div>
+      
+      <div class="team-card">
+        <div class="team-avatar">PS</div>
+        <h3>Priya Sharma</h3>
+        <p class="role">Chief Technology Officer</p>
+        <p>Expert in full-stack development and system architecture design.</p>
+      </div>
+      
+      <div class="team-card">
+        <div class="team-avatar">VK</div>
+        <h3>Vikram Kumar</h3>
+        <p class="role">Head of Operations</p>
+        <p>Ensures smooth logistics and customer satisfaction across all channels.</p>
+      </div>
+      
+      <div class="team-card">
+        <div class="team-avatar">SM</div>
+        <h3>Sneha Mehta</h3>
+        <p class="role">Marketing Director</p>
+        <p>Creative strategist driving brand growth and customer engagement.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <h2>Ready to Start Shopping?</h2>
+    <p>Explore our wide range of electronics and find the perfect gadget for you.</p>
+    <div class="cta-buttons">
+      <a href="products.html" class="cta-btn primary">
+        <i class="fas fa-shopping-bag"></i>
+        Browse Products
+      </a>
+      <a href="cart.html" class="cta-btn">
+        <i class="fas fa-shopping-cart"></i>
+        View Cart
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>ElectroMart</h3>
+      <p>Your trusted marketplace for electronics and gadgets. Quality products, competitive prices, and excellent service.</p>
+      <div class="social-links">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About Us</a>
+      <a href="cart.html">Shopping Cart</a>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Categories</h3>
+      <a href="products.html">Mobiles</a>
+      <a href="products.html">Laptops</a>
+      <a href="products.html">Headphones</a>
+      <a href="products.html">Accessories</a>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p><i class="fas fa-envelope"></i> support@electromart.com</p>
+      <p><i class="fas fa-phone"></i> +91 1800-123-4567</p>
+      <p><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka, India</p>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2025 ElectroMart — Demo marketplace for learning purposes. Built with ❤️ for developers.</p>
+  </div>
+</footer>
+
+</body>
+</html>

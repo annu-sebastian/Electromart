@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Checkout — ElectroMart</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="brand"><div class="logo">E</div>ElectroMart</div>
+      <div class="nav-actions"><button class="icon-btn" onclick="location.href='cart.html'">Back to cart</button></div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h2 style="margin-top:24px">Checkout</h2>
+    <div style="display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:12px">
+      <form class="hero-card">
+        <h4>Shipping details</h4>
+        <input class="form-control" placeholder="Full name" id="fullName" required>
+        <input class="form-control" placeholder="Phone number" id="phone" required>
+        <textarea class="form-control" placeholder="Shipping address" id="address" rows="4" required></textarea>
+        <h4 style="margin-top:12px">Payment</h4>
+        <select class="form-control" id="paymentMethod">
+          <option>Cash on Delivery</option>
+          <option>Card (Demo)</option>
+        </select>
+        <div style="margin-top:12px"><button class="add-btn" onclick="placeOrder(event)">Place Order</button></div>
+      </form>
+
+      <aside class="summary-card">
+        <h4>Order summary</h4>
+        <div id="summaryList" style="margin-top:12px"></div>
+        <div style="margin-top:12px">Total: <strong>₹<span id="summaryTotal">0</span></strong></div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">© 2025 ElectroMart — Demo marketplace</footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    function populateSummary(){
+      const cart = getCart(); const list = document.getElementById('summaryList'); list.innerHTML=''; let total=0;
+      cart.forEach(c=>{
+        total += c.price*c.qty;
+        const div = document.createElement('div');
+        div.style.display='flex';div.style.justifyContent='space-between';div.style.padding='6px 0';
+        div.innerHTML = `<div>${c.title} x${c.qty}</div><div>₹${(c.price*c.qty).toFixed(2)}</div>`;
+        list.appendChild(div);
+      });
+      document.getElementById('summaryTotal').textContent = total.toFixed(2);
+    }
+    populateSummary();
+
+    function placeOrder(e){
+      e.preventDefault();
+      const name = document.getElementById('fullName').value;
+      if(!name){ alert('Enter details'); return }
+      // For demo: clear cart & show confirmation
+      localStorage.removeItem('cart'); updateCartCount();
+      alert('Order placed — demo (no payments)');
+      location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

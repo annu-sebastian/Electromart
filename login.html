@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ElectroMart — Login Demo</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary: #0a66ff;
+  --accent: #0d47a1;
+  --muted: #6b7280;
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --text: #111;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+  font-family: 'Poppins', sans-serif; 
+  background: var(--bg); 
+  color: var(--text);
+}
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  padding: 1rem 0;
+  box-shadow: 0 4px 14px rgba(2,6,23,0.15);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.nav-btn {
+  padding: 0.6rem 1.2rem;
+  border: 2px solid rgba(255,255,255,0.3);
+  background: transparent;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-btn:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: #fff;
+}
+
+/* Login Section */
+.login-section {
+  max-width: 450px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+.login-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 6px 20px rgba(13,71,161,0.08);
+}
+
+.login-card h2 {
+  color: var(--accent);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.85rem;
+  border: 2px solid #e6eefc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10,102,255,0.3);
+}
+
+/* Content Section */
+.content-section {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.content-section h1 {
+  color: var(--accent);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.content-section p {
+  color: var(--muted);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.status-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(13,71,161,0.08);
+  margin-top: 2rem;
+}
+
+.status-card.success {
+  border-left: 4px solid #4CAF50;
+}
+
+.status-card.info {
+  border-left: 4px solid var(--primary);
+}
+
+.hidden {
+  display: none;
+}
+
+.user-info {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 1rem;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="brand">
+      <div class="logo">E</div>
+      ElectroMart
+    </div>
+    
+    <button class="nav-btn" id="userBtn" onclick="handleUserAction()">
+      <i class="fas fa-user"></i>
+      <span id="userText">Login</span>
+    </button>
+  </div>
+</nav>
+
+<!-- Login Section -->
+<div class="login-section" id="loginSection">
+  <div class="login-card">
+    <h2><i class="fas fa-sign-in-alt"></i> Login to Your Account</h2>
+    
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input 
+          type="email" 
+          id="email" 
+          class="form-control" 
+          placeholder="Enter your email (e.g., john@example.com)"
+          required
+        >
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          class="form-control" 
+          placeholder="Enter any password (min 6 chars)"
+          required
+          minlength="6"
+        >
+      </div>
+      
+      <button type="submit" class="login-btn">
+        <i class="fas fa-sign-in-alt"></i>
+        Login Now
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Content Section (shown after login) -->
+<div class="content-section hidden" id="contentSection">
+  <h1>Welcome to ElectroMart!</h1>
+  <p>You are now logged in</p>
+  
+  <div class="status-card success">
+    <h3><i class="fas fa-check-circle"></i> Login Successful!</h3>
+    <div class="user-info">
+      <i class="fas fa-user-circle"></i> Logged in as: <strong id="displayUsername"></strong>
+    </div>
+    <p style="margin-top: 1rem; color: var(--muted);">
+      Look at the top right corner - your username is displayed in the navbar!
+    </p>
+  </div>
+  
+  <div class="status-card info" style="margin-top: 2rem;">
+    <h3><i class="fas fa-info-circle"></i> How It Works</h3>
+    <p style="color: var(--muted); margin-top: 1rem;">
+      When you login, your username (extracted from email) is stored in memory and displayed in the navbar.
+      <br><br>
+      <strong>Try it:</strong> Enter "test@gmail.com" as email and see "test" appear in the navbar!
+    </p>
+  </div>
+</div>
+
+<script>
+// Global state
+let currentUser = null;
+
+// Handle login
+function handleLogin(event) {
+  event.preventDefault();
+  
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  
+  if (!email || !password) {
+    alert('Please fill in all fields');
+    return;
+  }
+  
+  // Extract username from email (part before @)
+  const username = email.split('@')[0];
+  
+  // Store user info
+  currentUser = {
+    email: email,
+    username: username,
+    loggedIn: true
+  };
+  
+  // Update UI
+  updateUserButton();
+  showContent();
+  
+  // Show username in content
+  document.getElementById('displayUsername').textContent = username;
+}
+
+// Update user button in navbar
+function updateUserButton() {
+  const userBtn = document.getElementById('userBtn');
+  const userText = document.getElementById('userText');
+  
+  if (currentUser && currentUser.loggedIn) {
+    // User is logged in - show username
+    userText.textContent = currentUser.username;
+    userBtn.innerHTML = `
+      <i class="fas fa-user-circle"></i>
+      <span>${currentUser.username}</span>
+    `;
+    userBtn.title = 'Click to logout';
+  } else {
+    // User is not logged in - show login
+    userBtn.innerHTML = `
+      <i class="fas fa-user"></i>
+      <span id="userText">Login</span>
+    `;
+    userBtn.title = 'Click to login';
+  }
+}
+
+// Handle user action (logout)
+function handleUserAction() {
+  if (currentUser && currentUser.loggedIn) {
+    // Logout
+    if (confirm('Do you want to logout?')) {
+      currentUser = null;
+      updateUserButton();
+      showLogin();
+    }
+  }
+}
+
+// Show login form
+function showLogin() {
+  document.getElementById('loginSection').classList.remove('hidden');
+  document.getElementById('contentSection').classList.add('hidden');
+  document.getElementById('loginForm').reset();
+}
+
+// Show content after login
+function showContent() {
+  document.getElementById('loginSection').classList.add('hidden');
+  document.getElementById('contentSection').classList.remove('hidden');
+}
+
+// Initialize
+updateUserButton();
+</script>
+
+</body>
+</html>
